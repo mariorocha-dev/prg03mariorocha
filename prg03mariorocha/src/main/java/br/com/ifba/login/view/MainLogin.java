@@ -5,9 +5,6 @@
 package br.com.ifba.login.view;
 
 import java.awt.Color;
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -52,7 +49,6 @@ public class MainLogin extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 204, 255));
         setLocation(new java.awt.Point(0, 0));
-        setMaximumSize(new java.awt.Dimension(1080, 1080));
         setResizable(false);
         setSize(new java.awt.Dimension(720, 480));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -170,8 +166,12 @@ public class MainLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEntrarActionPerformed
 
     private void lblCadastroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroMouseClicked
-
-        JOptionPane.showMessageDialog(null, "Mensagem de Erro Aqui", "Erro", JOptionPane.ERROR_MESSAGE);
+        // Instancio um objeto da tela de cadastro
+        MainCadastro telaCadastro = new MainCadastro();
+        // Torno a tela visivel
+        telaCadastro.setVisible(true);
+        // Fecho a tela de login
+        this.dispose();
         
     }//GEN-LAST:event_lblCadastroMouseClicked
 
