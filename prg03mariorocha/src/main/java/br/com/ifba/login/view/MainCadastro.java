@@ -4,6 +4,8 @@
  */
 package br.com.ifba.login.view;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mariorocha
@@ -17,6 +19,8 @@ public class MainCadastro extends javax.swing.JFrame {
      */
     public MainCadastro() {
         initComponents();
+        // Janela fica no centro da tela
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -55,7 +59,7 @@ public class MainCadastro extends javax.swing.JFrame {
 
         labelForInputCPF.setText("CPF");
 
-        escolhaGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        escolhaGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Feminino", "Masculino" }));
 
         labelForEscolhaGenero.setText("Genêro");
 
@@ -71,8 +75,12 @@ public class MainCadastro extends javax.swing.JFrame {
 
         labelForInputRepetirSenha.setText("Repetir Senha");
 
+        btnCadastrar.setBackground(new java.awt.Color(0, 102, 255));
+        btnCadastrar.setForeground(new java.awt.Color(255, 255, 255));
         btnCadastrar.setText("Cadastrar");
+        btnCadastrar.addActionListener(this::btnCadastrarActionPerformed);
 
+        btnCancelar.setBackground(new java.awt.Color(204, 204, 204));
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(this::btnCancelarActionPerformed);
 
@@ -185,6 +193,39 @@ public class MainCadastro extends javax.swing.JFrame {
         retornarTelaLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        // Capturo os dados dos inputs da tela de cadastro
+        String nome = inputNome.getText();
+        String cpf = inputCPF.getText();
+        String genero = (String) escolhaGenero.getSelectedItem();
+        String dataDeNascimento = inputDataDeNascimento.getText();
+        String telefone = inputTelefone.getText();
+        String email = inputEmail.getText();
+        String login = inputLogin.getText();
+        String senha = inputSenha.getText();
+        String confirmacaoDeSenha = inputRepetirSenha.getText();
+        // Testa se um dos campos esta vazio
+        if(nome.isEmpty()
+                || cpf.isEmpty()
+                || dataDeNascimento.isEmpty()
+                || telefone.isEmpty()
+                || email.isEmpty()
+                || login.isEmpty()
+                || senha.isEmpty()
+                || confirmacaoDeSenha.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Preencha Todos os Campos!!", "Campos incompletos", JOptionPane.ERROR_MESSAGE);
+        }else{
+            // Testa se as senhas são iguais
+            if(!senha.equals(confirmacaoDeSenha)){
+                JOptionPane.showMessageDialog(null, "Verifique as senhas!!", "Senhas não coincidem", JOptionPane.ERROR_MESSAGE);
+            }else{
+                //Caso sejam iguais, realiza o cadastro
+                JOptionPane.showMessageDialog(null, "Cadastro efetuado", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+        
+    }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
      * @param args the command line arguments

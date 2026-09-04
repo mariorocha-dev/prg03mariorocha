@@ -20,8 +20,8 @@ public class MainLogin extends javax.swing.JFrame {
      */
     public MainLogin() {
         initComponents();
-        
-        //ImageIcon loginImagem = new ImageIcon(getClass().getResource("/br/com/ifba/login/imagens/user.png"));
+        // Janela fica no centro da tela
+        this.setLocationRelativeTo(null);
     }
 
     /**
