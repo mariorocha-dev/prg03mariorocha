@@ -66,7 +66,7 @@ public class MainLogin extends javax.swing.JFrame {
 
         lblUser.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         lblUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblUser.setText("Sistema Acadêmico");
+        lblUser.setText("Ela Bela");
         getContentPane().add(lblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 96, 220, -1));
 
         txtLogin.addActionListener(this::txtLoginActionPerformed);
@@ -109,7 +109,7 @@ public class MainLogin extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblResultadoSenha)
                     .addComponent(lblResultadoLogin))
-                .addContainerGap(271, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,7 +121,7 @@ public class MainLogin extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(18, 381, -1, -1));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 340, 400, -1));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -177,12 +177,12 @@ public class MainLogin extends javax.swing.JFrame {
 
     private void lblCadastroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroMouseEntered
         // TODO add your handling code here:
-        lblCadastro.setForeground(Color.blue);
+        lblCadastro.setForeground(new java.awt.Color(75, 156, 211));
     }//GEN-LAST:event_lblCadastroMouseEntered
 
     private void lblCadastroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCadastroMouseExited
         // TODO add your handling code here:
-        lblCadastro.setForeground(new java.awt.Color(51, 51, 255));
+        lblCadastro.setForeground(Color.blue);
     }//GEN-LAST:event_lblCadastroMouseExited
 
     /**
