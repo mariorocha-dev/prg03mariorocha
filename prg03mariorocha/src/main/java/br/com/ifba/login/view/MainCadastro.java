@@ -4,6 +4,7 @@
  */
 package br.com.ifba.login.view;
 
+import br.com.ifba.usuario.validar.ValidadorUsuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -216,13 +217,24 @@ public class MainCadastro extends javax.swing.JFrame {
                 || confirmacaoDeSenha.isEmpty()){
             JOptionPane.showMessageDialog(null, "Preencha Todos os Campos!!", "Campos incompletos", JOptionPane.ERROR_MESSAGE);
         }else{
-            // Testa se as senhas são iguais
-            if(!senha.equals(confirmacaoDeSenha)){
-                JOptionPane.showMessageDialog(null, "Verifique as senhas!!", "Senhas não coincidem", JOptionPane.ERROR_MESSAGE);
+            // Testa se existe a palavra proíbida
+            if(ValidadorUsuario.contemPalavraProibida(nome)
+                    || ValidadorUsuario.contemPalavraProibida(cpf)
+                    || ValidadorUsuario.contemPalavraProibida(dataDeNascimento)
+                    || ValidadorUsuario.contemPalavraProibida(telefone)
+                    || ValidadorUsuario.contemPalavraProibida(email)
+                    || ValidadorUsuario.contemPalavraProibida(login)
+                    || ValidadorUsuario.contemPalavraProibida(senha)){
+                        JOptionPane.showMessageDialog(null, "Você digitou uma palavra proíbida!!", "Palavras proíbidas", JOptionPane.ERROR_MESSAGE);
             }else{
-                //Caso sejam iguais, realiza o cadastro
-                JOptionPane.showMessageDialog(null, "Cadastro efetuado", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
-            }
+                // Testa se as senhas são iguais
+                if(!senha.equals(confirmacaoDeSenha)){
+                    JOptionPane.showMessageDialog(null, "Verifique as senhas!!", "Senhas não coincidem", JOptionPane.ERROR_MESSAGE);
+                }else{
+                    //Caso sejam iguais, realiza o cadastro
+                    JOptionPane.showMessageDialog(null, "Cadastro efetuado", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }  
         }
         
     }//GEN-LAST:event_btnCadastrarActionPerformed
