@@ -100,6 +100,7 @@ public class MainCadastro extends javax.swing.JFrame {
         btnCadastrar.addActionListener(this::btnCadastrarActionPerformed);
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(204, 0, 102));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Seja Bem-Vindo!");
 
