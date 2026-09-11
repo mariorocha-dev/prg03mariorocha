@@ -6,6 +6,7 @@ package br.com.ifba.login.view;
 
 import br.com.ifba.usuario.validar.ValidadorUsuario;
 import javax.swing.JOptionPane;
+import br.com.ifba.usuario.entity.Usuario;
 
 /**
  *
@@ -262,7 +263,18 @@ public class MainCadastro extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Verifique as senhas!!", "Senhas não coincidem", JOptionPane.ERROR_MESSAGE);
                 }else{
                     //Caso sejam iguais, realiza o cadastro
-                    JOptionPane.showMessageDialog(null, "Cadastro efetuado", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
+                    // Instancia objeto do tipo Usuario
+                    Usuario novoUsuario = new Usuario();
+                    // Adiciona os dados no objeto
+                    novoUsuario.nome = nome;
+                    novoUsuario.login = login;
+                    novoUsuario.cpf = cpf;
+                    novoUsuario.dataDeNascimento = dataDeNascimento;
+                    novoUsuario.genero = genero;
+                    novoUsuario.telefone = telefone;
+                    novoUsuario.email = email;
+                    novoUsuario.senha = senha;
+                    JOptionPane.showMessageDialog(null, "Cadastro efetuado. O osuário: " + novoUsuario.nome + " foi cadastrado com sucesso!", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
                 }
             }  
         }

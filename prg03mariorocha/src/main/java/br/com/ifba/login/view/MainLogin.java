@@ -4,6 +4,7 @@
  */
 package br.com.ifba.login.view;
 
+import br.com.ifba.usuario.entity.Usuario;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -231,14 +232,15 @@ public class MainLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenhaActionPerformed
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // TODO add your handling code here:
-        // Declaro objetos do tipo String para receber o conteudo dos textField
-        String loginDigitado = txtLogin.getText();
-        String senhaDigitada = txtSenha.getText();
+        // Instancio um objeto da classe Usuario
+        Usuario usuarioLogin = new Usuario();
+        // Preencho o login e a senha do objeto com os dados vindo da tela
+        usuarioLogin.login = txtLogin.getText();
+        usuarioLogin.senha = txtSenha.getText();
         
         // Uso como parametro do set text dos labels, as informações recolhidas
-        lblResultadoLogin.setText("Login Digitado: " + loginDigitado);
-        lblResultadoSenha.setText("Senha Digitada: " + senhaDigitada);
+        lblResultadoLogin.setText("Login Digitado: " + usuarioLogin.login);
+        lblResultadoSenha.setText("Senha Digitada: " + usuarioLogin.senha);
        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
