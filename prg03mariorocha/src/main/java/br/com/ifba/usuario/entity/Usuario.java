@@ -17,6 +17,22 @@ public class Usuario {
     private String email;
     private String login;
     private String senha;
+    
+    // Constructor completo
+    public Usuario(String nome, String cpf, String dataDeNascimento, String genero, String telefone, String email, String login, String senha) {
+        this.nome = nome;
+        this.cpf = cpf;
+        this.dataDeNascimento = dataDeNascimento;
+        this.genero = genero;
+        this.telefone = telefone;
+        this.email = email;
+        this.login = login;
+        this.senha = senha;
+    }
+    // Constructor vazio
+    public Usuario() {
+    }
+    
 
     public String getNome() {
         return nome;
