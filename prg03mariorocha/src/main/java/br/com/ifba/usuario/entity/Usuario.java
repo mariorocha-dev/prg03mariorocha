@@ -9,12 +9,12 @@ package br.com.ifba.usuario.entity;
  * @author mariorocha
  */
 public class Usuario {
-    public String nome;
-    public String cpf;
-    public String genero;
-    public String dataDeNascimento;
-    public String telefone;
-    public String email;
-    public String login;
-    public String senha;
+    private String nome;
+    private String cpf;
+    private String dataDeNascimento;
+    private String genero;
+    private String telefone;
+    private String email;
+    private String login;
+    private String senha;
 }
