@@ -266,15 +266,15 @@ public class MainCadastro extends javax.swing.JFrame {
                     // Instancia objeto do tipo Usuario
                     Usuario novoUsuario = new Usuario();
                     // Adiciona os dados no objeto
-                    novoUsuario.nome = nome;
-                    novoUsuario.login = login;
-                    novoUsuario.cpf = cpf;
-                    novoUsuario.dataDeNascimento = dataDeNascimento;
-                    novoUsuario.genero = genero;
-                    novoUsuario.telefone = telefone;
-                    novoUsuario.email = email;
-                    novoUsuario.senha = senha;
-                    JOptionPane.showMessageDialog(null, "Cadastro efetuado. O osuário: " + novoUsuario.nome + " foi cadastrado com sucesso!", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
+                    novoUsuario.setNome(nome);
+                    novoUsuario.setCpf(cpf);
+                    novoUsuario.setDataDeNascimento(dataDeNascimento);
+                    novoUsuario.setGenero(genero);
+                    novoUsuario.setTelefone(telefone);
+                    novoUsuario.setEmail(email);
+                    novoUsuario.setLogin(login);
+                    novoUsuario.setSenha(senha);
+                    JOptionPane.showMessageDialog(null, "Cadastro efetuado. O osuário: " + novoUsuario.getNome() + " foi cadastrado com sucesso!", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
                 }
             }  
         }
