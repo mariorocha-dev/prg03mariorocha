@@ -263,18 +263,10 @@ public class MainCadastro extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Verifique as senhas!!", "Senhas não coincidem", JOptionPane.ERROR_MESSAGE);
                 }else{
                     //Caso sejam iguais, realiza o cadastro
-                    // Instancia objeto do tipo Usuario
-                    Usuario novoUsuario = new Usuario();
-                    // Adiciona os dados no objeto
-                    novoUsuario.nome = nome;
-                    novoUsuario.login = login;
-                    novoUsuario.cpf = cpf;
-                    novoUsuario.dataDeNascimento = dataDeNascimento;
-                    novoUsuario.genero = genero;
-                    novoUsuario.telefone = telefone;
-                    novoUsuario.email = email;
-                    novoUsuario.senha = senha;
-                    JOptionPane.showMessageDialog(null, "Cadastro efetuado. O osuário: " + novoUsuario.nome + " foi cadastrado com sucesso!", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
+                    // Instancia objeto do tipo Usuario ja passando dados
+                    Usuario novoUsuario = new Usuario(nome, cpf, dataDeNascimento, genero, telefone, email,
+                    login, senha);
+                    JOptionPane.showMessageDialog(null, "Cadastro efetuado. O osuário: " + novoUsuario.getNome() + " foi cadastrado com sucesso!", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
                 }
             }  
         }

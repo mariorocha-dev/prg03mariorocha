@@ -235,12 +235,12 @@ public class MainLogin extends javax.swing.JFrame {
         // Instancio um objeto da classe Usuario
         Usuario usuarioLogin = new Usuario();
         // Preencho o login e a senha do objeto com os dados vindo da tela
-        usuarioLogin.login = txtLogin.getText();
-        usuarioLogin.senha = txtSenha.getText();
+        usuarioLogin.setLogin(txtLogin.getText()); // Utilizo set
+        usuarioLogin.setSenha(txtSenha.getText());
         
         // Uso como parametro do set text dos labels, as informações recolhidas
-        lblResultadoLogin.setText("Login Digitado: " + usuarioLogin.login);
-        lblResultadoSenha.setText("Senha Digitada: " + usuarioLogin.senha);
+        lblResultadoLogin.setText("Login Digitado: " + usuarioLogin.getLogin()); // Utilizo GET
+        lblResultadoSenha.setText("Senha Digitada: " + usuarioLogin.getSenha());
        
     }//GEN-LAST:event_btnEntrarActionPerformed
 
