@@ -100,6 +100,7 @@ public class Usuario implements Autenticavel{
         this.senha = senha;
     }
 
+    @Override
     public boolean autenticar(String login, String senha) {
         // Retorna true caso os dados sejam iguais ou false caso sejam falsos
         return login.equals(this.login) && senha.equals(this.senha);   
