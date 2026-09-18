@@ -36,9 +36,9 @@ public class MainLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        txtLogin = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         txtSenha = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtLogin = new javax.swing.JTextField();
         btnEntrar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         lblResultadoLogin = new javax.swing.JLabel();
@@ -63,13 +63,13 @@ public class MainLogin extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        txtLogin.addActionListener(this::txtLoginActionPerformed);
+        txtSenha.addActionListener(this::txtSenhaActionPerformed);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Senha");
 
-        txtSenha.addActionListener(this::txtSenhaActionPerformed);
+        txtLogin.addActionListener(this::txtLoginActionPerformed);
 
         btnEntrar.setBackground(new java.awt.Color(255, 204, 255));
         btnEntrar.setForeground(new java.awt.Color(204, 0, 102));
@@ -155,14 +155,14 @@ public class MainLogin extends javax.swing.JFrame {
                             .addGap(8, 8, 8)
                             .addComponent(lblCadastro)
                             .addGap(30, 30, 30)))
-                    .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(btnEntrar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtLogin, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
+                        .addComponent(txtSenha, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)))
                 .addGap(57, 57, 57))
         );
         jPanel2Layout.setVerticalGroup(
@@ -175,11 +175,11 @@ public class MainLogin extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addGap(3, 3, 3)
-                .addComponent(txtLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
@@ -223,20 +223,29 @@ public class MainLogin extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtLoginActionPerformed
-
     private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenhaActionPerformed
 
+    private void txtLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLoginActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLoginActionPerformed
+
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        // Instancio um objeto da classe Usuario
+        // Instancio um objeto da classe Usuari
         Usuario usuarioLogin = new Usuario();
-        // Preencho o login e a senha do objeto com os dados vindo da tela
-        usuarioLogin.setLogin(txtLogin.getText()); // Utilizo set
-        usuarioLogin.setSenha(txtSenha.getText());
+        usuarioLogin.setLogin("Mario"); // Usuario Ficticio
+        usuarioLogin.setSenha("cuscuz123"); // Senha ficticia
+        // Pego os dados da JFrame
+        String login = txtLogin.getText();
+        String senha = txtSenha.getText();
+        // Chamo o método autenticar passando os dados vindos do JFRame ja utilizando um IF
+        if(usuarioLogin.autenticar(login, senha)){
+            JOptionPane.showMessageDialog(null, "Olá novamente, "+usuarioLogin.getLogin(), "Acesso confirmado", JOptionPane.INFORMATION_MESSAGE);
+
+        }else{
+        JOptionPane.showMessageDialog(null, "O usuario não está cadastrado na nossa base de dados!!", "Acesso Negado", JOptionPane.ERROR_MESSAGE);
+        }
         
         // Uso como parametro do set text dos labels, as informações recolhidas
         lblResultadoLogin.setText("Login Digitado: " + usuarioLogin.getLogin()); // Utilizo GET
