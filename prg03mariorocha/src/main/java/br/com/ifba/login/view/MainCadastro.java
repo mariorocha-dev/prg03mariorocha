@@ -13,7 +13,7 @@ import br.com.ifba.usuario.entity.Usuario;
  * @author mariorocha
  */
 public class MainCadastro extends javax.swing.JFrame {
-    
+
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MainCadastro.class.getName());
 
     /**
@@ -237,40 +237,22 @@ public class MainCadastro extends javax.swing.JFrame {
         String login = inputLogin.getText();
         String senha = inputSenha.getText();
         String confirmacaoDeSenha = inputRepetirSenha.getText();
-        // Testa se um dos campos esta vazio
-        if(nome.isEmpty()
-                || cpf.isEmpty()
-                || dataDeNascimento.isEmpty()
-                || telefone.isEmpty()
-                || email.isEmpty()
-                || login.isEmpty()
-                || senha.isEmpty()
-                || confirmacaoDeSenha.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Preencha Todos os Campos!!", "Campos incompletos", JOptionPane.ERROR_MESSAGE);
-        }else{
-            // Testa se existe a palavra proíbida
-            if(ValidadorUsuario.contemPalavraProibida(nome)
-                    || ValidadorUsuario.contemPalavraProibida(cpf)
-                    || ValidadorUsuario.contemPalavraProibida(dataDeNascimento)
-                    || ValidadorUsuario.contemPalavraProibida(telefone)
-                    || ValidadorUsuario.contemPalavraProibida(email)
-                    || ValidadorUsuario.contemPalavraProibida(login)
-                    || ValidadorUsuario.contemPalavraProibida(senha)){
-                        JOptionPane.showMessageDialog(null, "Você digitou uma palavra proíbida!!", "Palavras proíbidas", JOptionPane.ERROR_MESSAGE);
-            }else{
-                // Testa se as senhas são iguais
-                if(!senha.equals(confirmacaoDeSenha)){
-                    JOptionPane.showMessageDialog(null, "Verifique as senhas!!", "Senhas não coincidem", JOptionPane.ERROR_MESSAGE);
-                }else{
-                    //Caso sejam iguais, realiza o cadastro
-                    // Instancia objeto do tipo Usuario ja passando dados
-                    Usuario novoUsuario = new Usuario(nome, cpf, dataDeNascimento, genero, telefone, email,
-                    login, senha);
-                    JOptionPane.showMessageDialog(null, "Cadastro efetuado. O osuário: " + novoUsuario.getNome() + " foi cadastrado com sucesso!", "Confirmacao de cadastro", JOptionPane.INFORMATION_MESSAGE);
-                }
-            }  
-        }
         
+        ValidadorUsuario validarUsuario = new ValidadorUsuario(
+            confirmacaoDeSenha,
+            nome,
+            cpf,
+            dataDeNascimento,
+            genero,
+            telefone,
+            email,
+            login,
+            senha
+        );
+        
+        validarUsuario.cadastrarUsuario();
+
+
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
     /**
